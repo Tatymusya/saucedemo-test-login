@@ -1,4 +1,5 @@
 # SauceDemo Login Tests
+
 Автоматизированные UI-тесты авторизации на сайте [https://www.saucedemo.com/](https://www.saucedemo.com/).
 Saucedemo.com — это демо-сайт, созданный компанией Sauce Labs, который используется для практики автоматизированного тестирования. 
 ---
