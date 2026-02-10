@@ -121,9 +121,9 @@ saucedemo-test-login/
    ```bash
    pytest
    ```
-   ##### Указываем браузерный движок:
+   ##### Указываем браузерный движок (browser_name=("chromium", "firefox", "webkit")):
    ```bash
-   pytest --browser-name=[browser_name=("chromium", "firefox", "webkit")]
+   pytest --browser-name=chromium
    ```
    ##### Запуск конкретного теста:
    ```bash
