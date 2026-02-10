@@ -110,7 +110,7 @@ class TestLogin:
     @allure.title('Тест 4: Неуспешная авторизация если пользователь заблокирован')
     @allure.story('Негативный сценарий')
     @allure.tag('negative')
-    @allure.severity(allure.severity_level.BLOCKER)
+    @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.parametrize(
         'username, password',
         [
@@ -138,7 +138,7 @@ class TestLogin:
     @allure.title('Тест 5: Неуспешная авторизация если пользователь отсутствует в базе данных')
     @allure.story('Негативный сценарий')
     @allure.tag('negative')
-    @allure.severity(allure.severity_level.BLOCKER)
+    @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.parametrize(
         'username, password',
         [
@@ -166,7 +166,7 @@ class TestLogin:
     @allure.title('Тест 6: Неуспешная авторизация если поле username пустое')
     @allure.story('Негативный сценарий')
     @allure.tag('negative')
-    @allure.severity(allure.severity_level.BLOCKER)
+    @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.parametrize(
         'username, password',
         [
@@ -194,7 +194,7 @@ class TestLogin:
     @allure.title('Тест 7: Неуспешная авторизация если поле password пустое')
     @allure.story('Негативный сценарий')
     @allure.tag('negative')
-    @allure.severity(allure.severity_level.BLOCKER)
+    @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.parametrize(
         'username, password',
         [
