@@ -2,6 +2,7 @@ import pytest
 from utils.config import APP_URL
 from playwright.sync_api import Page, Browser
 from pages.login_page import LoginPage
+from pages.catalog_page import CatalogPage
 
 
 @pytest.fixture(scope='function')
@@ -12,7 +13,7 @@ def browser_page(browser: Browser) -> Page:
         )
 
         browser_page = context.new_page()
-        LoginPage(page=browser_page)
+        # LoginPage(page=browser_page)
         yield browser_page
 
         browser.close()
@@ -22,4 +23,8 @@ def browser_page(browser: Browser) -> Page:
 
 @pytest.fixture(scope='function')
 def login_page(browser_page: Page) -> LoginPage:
-    return LoginPage(browser_page)
+    return LoginPage(page=browser_page)
+
+@pytest.fixture(scope='function')
+def catalog_page(browser_page: Page) -> CatalogPage:
+    return CatalogPage(page=browser_page)

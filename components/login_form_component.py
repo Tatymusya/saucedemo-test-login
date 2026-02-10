@@ -1,8 +1,9 @@
+import allure
 from components.base_component import BaseComponent
 from playwright.sync_api import Page
 from locators.login_page_locators import *
 from elements.input import Input
-from elements.title import Title
+from elements.heading import Heading
 from elements.button import Button
 from utils.input_type_mode import InputTypeMode
 
@@ -21,7 +22,7 @@ class LoginFormComponent(BaseComponent):
             page, locator=PASSWORD_FIELD_TEST_ID, name='password', type_input=InputTypeMode.PASSWORD
         )
 
-        self.validation_message = Title(
+        self.validation_message = Heading(
             page, locator=VALIDATION_MESSAGE_TEST_ID, name='validation'
         )
 
@@ -36,7 +37,7 @@ class LoginFormComponent(BaseComponent):
         self.password_input.fill(password)
         self.password_input.should_have_value(password)
 
-    def check_enabled(self, username: str, password: str) -> None:
+    def check_enabled(self) -> None:
         self.username_input.should_be_visible()
         self.username_input.should_be_enabled()
 
@@ -47,24 +48,28 @@ class LoginFormComponent(BaseComponent):
         self.validation_button_close.should_be_visible()
 
     def should_validation_when_user_missing_system(self):
-        self.validation_message.should_be_visible()
-        self.validation_message.should_have_text(VALIDATION_MESSAGE['missing_in_system'])
-        self.should_validation_button_close()
+        with allure.step(f'Проверяем, что показалось сообщение об ошибке {VALIDATION_MESSAGE["missing_in_system"]}'):
+            self.validation_message.should_be_visible()
+            self.validation_message.should_have_text(VALIDATION_MESSAGE['missing_in_system'])
+            self.should_validation_button_close()
 
     def should_validation_when_user_locked_out(self):
-        self.validation_message.should_be_visible()
-        self.validation_message.should_have_text(VALIDATION_MESSAGE['locked_out_user'])
-        self.should_validation_button_close()
+        with allure.step(f'Проверяем, что показалось сообщение об ошибке {VALIDATION_MESSAGE["locked_out_user"]}'):
+            self.validation_message.should_be_visible()
+            self.validation_message.should_have_text(VALIDATION_MESSAGE['locked_out_user'])
+            self.should_validation_button_close()
 
     def should_validation_when_username_empty(self):
-        self.validation_message.should_be_visible()
-        self.validation_message.should_have_text(VALIDATION_MESSAGE['empty_username'])
-        self.should_validation_button_close()
+        with allure.step(f'Проверяем, что показалось сообщение об ошибке {VALIDATION_MESSAGE["empty_username"]}'):
+            self.validation_message.should_be_visible()
+            self.validation_message.should_have_text(VALIDATION_MESSAGE['empty_username'])
+            self.should_validation_button_close()
 
     def should_validation_when_password_empty(self):
-        self.validation_message.should_be_visible()
-        self.validation_message.should_have_text(VALIDATION_MESSAGE['empty_password'])
-        self.should_validation_button_close()
+        with allure.step(f'Проверяем, что показалось сообщение об ошибке {VALIDATION_MESSAGE["empty_password"]}'):
+            self.validation_message.should_be_visible()
+            self.validation_message.should_have_text(VALIDATION_MESSAGE['empty_password'])
+            self.should_validation_button_close()
 
     def validation_button_close_click(self):
         self.validation_button_close.click()

@@ -27,7 +27,7 @@ saucedemo-test-login/
 │   ├── button.py
 │   ├── input.py
 │   ├── interactive_element.py
-│   └── title.py
+│   └── heading.py
 ├── fixtures/              # код, который запускается перед запуском тестов
 │   ├── __init__.py
 │   ├── browser.py

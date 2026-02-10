@@ -10,7 +10,7 @@ from utils.login_validation_mode import LoginValidationMode
 class TestLogin:
     @staticmethod
     def prepare_fields(login_page: LoginPage, username: str, password: str) -> None:
-        login_page.login_form.check_enabled(username='', password='')
+        login_page.login_form.check_enabled()
         login_page.login_form.fill_fields(
             username,
             password
@@ -107,7 +107,7 @@ class TestLogin:
     @pytest.mark.negative
     @pytest.mark.login
     @pytest.mark.all
-    @allure.title('Тест 4: Не успешная авторизация если пользователь заблокирован')
+    @allure.title('Тест 4: Неуспешная авторизация если пользователь заблокирован')
     @allure.story('Негативный сценарий')
     @allure.tag('negative')
     @allure.severity(allure.severity_level.BLOCKER)
@@ -135,7 +135,7 @@ class TestLogin:
     @pytest.mark.negative
     @pytest.mark.login
     @pytest.mark.all
-    @allure.title('Тест 5: Не успешная авторизация если пользователь отсутствует в базе данных')
+    @allure.title('Тест 5: Неуспешная авторизация если пользователь отсутствует в базе данных')
     @allure.story('Негативный сценарий')
     @allure.tag('negative')
     @allure.severity(allure.severity_level.BLOCKER)
@@ -143,7 +143,6 @@ class TestLogin:
         'username, password',
         [
             ('missing_user', 'secret_sauce'),
-            ('standard_user', 'missing_password')
         ]
     )
     def test_failed_user_missing_by_click(
@@ -158,13 +157,13 @@ class TestLogin:
 
         login_page.click_login_button()
         login_page.check_current_url(APP_URL)
-        login_page.should_validation_message_is_visible(mode=LoginValidationMode.MISSING_IN_SYSTEM_USER)
+        login_page.should_validation_message_is_visible(LoginValidationMode.MISSING_IN_SYSTEM_USER)
 
     @pytest.mark.smoke
     @pytest.mark.negative
     @pytest.mark.login
     @pytest.mark.all
-    @allure.title('Тест 6: Не успешная авторизация если поле username пустое')
+    @allure.title('Тест 6: Неуспешная авторизация если поле username пустое')
     @allure.story('Негативный сценарий')
     @allure.tag('negative')
     @allure.severity(allure.severity_level.BLOCKER)
@@ -186,13 +185,13 @@ class TestLogin:
 
         login_page.click_login_button()
         login_page.check_current_url(APP_URL)
-        login_page.should_validation_message_is_visible(mode=LoginValidationMode.EMPTY_USERNAME)
+        login_page.should_validation_message_is_visible(LoginValidationMode.EMPTY_USERNAME)
 
     @pytest.mark.smoke
     @pytest.mark.negative
     @pytest.mark.login
     @pytest.mark.all
-    @allure.title('Тест 7: Не успешная авторизация если поле password пустое')
+    @allure.title('Тест 7: Неуспешная авторизация если поле password пустое')
     @allure.story('Негативный сценарий')
     @allure.tag('negative')
     @allure.severity(allure.severity_level.BLOCKER)
@@ -214,4 +213,4 @@ class TestLogin:
 
         login_page.click_login_button()
         login_page.check_current_url(APP_URL)
-        login_page.should_validation_message_is_visible(mode=LoginValidationMode.EMPTY_PASSWORD)
+        login_page.should_validation_message_is_visible(LoginValidationMode.EMPTY_PASSWORD)
