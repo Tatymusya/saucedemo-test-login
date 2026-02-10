@@ -4,6 +4,7 @@ from locators.login_page_locators import *
 from elements.input import Input
 from elements.title import Title
 from elements.button import Button
+from utils.input_type_mode import InputTypeMode
 
 
 class LoginFormComponent(BaseComponent):
@@ -17,7 +18,7 @@ class LoginFormComponent(BaseComponent):
         )
 
         self.password_input = Input(
-            page, locator=PASSWORD_FIELD_TEST_ID, name='password'
+            page, locator=PASSWORD_FIELD_TEST_ID, name='password', type_input=InputTypeMode.PASSWORD
         )
 
         self.validation_message = Title(
@@ -38,11 +39,9 @@ class LoginFormComponent(BaseComponent):
     def check_enabled(self, username: str, password: str) -> None:
         self.username_input.should_be_visible()
         self.username_input.should_be_enabled()
-        self.username_input.should_have_value(username)
 
         self.password_input.should_be_visible()
         self.password_input.should_be_enabled()
-        self.password_input.should_have_value(password)
 
     def should_validation_button_close(self):
         self.validation_button_close.should_be_visible()

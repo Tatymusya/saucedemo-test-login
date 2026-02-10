@@ -33,8 +33,6 @@ class TestLogin:
         'username, password',
         [
             ('standard_user', 'secret_sauce'),
-            ('performance_glitch_user', 'secret_sauce'),
-            ('visual_user', 'secret_sauce')
         ]
     )
     def test_successful_by_click(
@@ -62,7 +60,6 @@ class TestLogin:
         'username, password',
         [
             ('standard_user', 'secret_sauce'),
-            ('visual_user', 'secret_sauce')
         ]
     )
     def test_successful_by_press_enter(

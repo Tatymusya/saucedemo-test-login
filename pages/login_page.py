@@ -7,6 +7,7 @@ from elements.input import Input
 from elements.title import Title
 from locators.login_page_locators import *
 from utils.login_validation_mode import LoginValidationMode
+from utils.input_type_mode import InputTypeMode
 
 
 class LoginPage(BasePage):
@@ -17,7 +18,7 @@ class LoginPage(BasePage):
         self.login_form = LoginFormComponent(page)
 
         self.submit_input = Input(
-            page, locator=LOGIN_BUTTON_TEST_ID, name='submit'
+            page, locator=LOGIN_BUTTON_TEST_ID, name='submit', type_input=InputTypeMode.SUBMIT
         )
 
         self.error_message = Title(

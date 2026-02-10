@@ -1,13 +1,18 @@
 import allure
 from playwright.sync_api import expect
 from elements.interactive_element import InteractiveElement
+from utils.input_type_mode import InputTypeMode
 
 
 class Input(InteractiveElement):
+    def __init__(self, page, locator, name, type_input: InputTypeMode = InputTypeMode.TEXT) -> None:
+        super().__init__(page, locator, name)
+        self.type_input = type_input
 
     @property
     def type_of(self) -> str:
-        return 'input'
+        type_name = self.type_input.value
+        return f'input_type_{type_name}'
 
     def fill(self, value: str, validate_value=False) -> None:
         with allure.step(f'Заполняем поле {self.type_of} значением'):
