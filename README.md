@@ -72,6 +72,15 @@ saucedemo-test-login/
 - **test_failed_user_missing_by_click** - Неуспешный логин заблокированного пользователя, которого нет в системе, по клику
 - **test_failed_username_empty_by_click** - Неуспешный логин с пустым полем username, по клику
 - **test_failed_password_empty_by_click** - Неуспешный логин с пустым полем password, по клику
+
+### Авторизационные данные для тестов ([username, password])
+- **test_successful_by_click** - ['standard_user', 'secret_sauce']
+- **test_successful_by_press_enter** - ['standard_user', 'secret_sauce']
+- **test_successful_when_performance_glitch_by_click** - ['performance_glitch_user', 'secret_sauce']
+- **test_failed_user_locked_up_by_click** - ['locked_out_user', 'secret_sauce']
+- **test_failed_user_missing_by_click** - ['missing_user', 'secret_sauce']
+- **test_failed_username_empty_by_click** - ['', 'secret_sauce']
+- **test_failed_password_empty_by_click** - ['standard_user', '']
 ---
 ## Установка и запуск
 ### Локальный запуск
