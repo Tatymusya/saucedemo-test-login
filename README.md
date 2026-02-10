@@ -1,7 +1,7 @@
 # SauceDemo Login Tests
-
 Автоматизированные UI-тесты авторизации на сайте [https://www.saucedemo.com/](https://www.saucedemo.com/).
-Saucedemo.com — это демо-сайт, созданный компанией Sauce Labs, который используется для практики автоматизированного тестирования. 
+Saucedemo.com — это демо-сайт, созданный компанией Sauce Labs, который используется для практики автоматизированного тестирования.
+
 ---
 ## Технологический стек
 
@@ -121,9 +121,9 @@ saucedemo-test-login/
    ```bash
    pytest
    ```
-   ##### Указываем браузерный движок:
+   ##### Указываем браузерный движок (browser_name=("chromium", "firefox", "webkit")):
    ```bash
-   pytest --browser-name=[browser_name=("chromium", "firefox", "webkit")]
+   pytest --browser-name=chromium
    ```
    ##### Запуск конкретного теста:
    ```bash
